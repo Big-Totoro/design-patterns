@@ -2,17 +2,20 @@ package io.sskuratov;
 
 import static org.junit.Assert.assertTrue;
 
+import io.sskuratov.visitor.*;
 import org.junit.Test;
 
-/**
- * Unit test for simple App.
- */
+import java.util.Arrays;
+import java.util.List;
+
 public class AppTest {
-    /**
-     * Rigorous Test :-)
-     */
+
     @Test
     public void shouldAnswerWithTrue() {
-        assertTrue( true );
+        Visitor visitor = new SquareCalculationVisitor();
+        visitor.visit(new Circle(10));
+        visitor.visit(new Rectangle(20, 30));
+        visitor.visit(new Square(40));
+        visitor.visit(new Triangle(50, 45));
     }
 }
